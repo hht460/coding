@@ -1,4 +1,4 @@
-package com.hthu.jzoffer;
+package jzoffer;
 
 public class JZ02 {
     // 替换空格

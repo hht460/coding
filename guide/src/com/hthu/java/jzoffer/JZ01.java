@@ -1,4 +1,4 @@
-package com.hthu.jzoffer;
+package jzoffer;
 
 public class JZ01 {
     public static void main(String[] args) {

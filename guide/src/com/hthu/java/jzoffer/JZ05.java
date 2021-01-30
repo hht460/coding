@@ -1,4 +1,4 @@
-package com.hthu.jzoffer;
+package jzoffer;
 
 import java.util.Stack;
 
