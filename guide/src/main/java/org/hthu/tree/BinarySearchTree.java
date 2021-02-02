@@ -13,7 +13,18 @@ public class BinarySearchTree {
      * @return
      */
     public Node find(int data){
-        while(node !=null){}
+        while(node !=null){
+            // 大于当前节点值,遍历右子树
+            if (node.data < data){
+                node = node.right;
+            }
+            // 小于当前节点值,遍历左子树
+            if(node.data > data){
+                node = node.left;
+            }
+            return node;
+        }
+        return null;
     }
 
     /**
