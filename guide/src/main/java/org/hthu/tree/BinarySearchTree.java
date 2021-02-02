@@ -1,7 +1,7 @@
 package org.hthu.tree;
 
 /**
- * 二叉搜索树
+ * 二叉搜索树,几种基本操作
  */
 public class BinarySearchTree {
 
