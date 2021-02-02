@@ -13,7 +13,7 @@ public class BinarySearchTree {
      * @return
      */
     public Node find(int data){
-        while(){}
+        while(node !=null){}
     }
 
     /**
