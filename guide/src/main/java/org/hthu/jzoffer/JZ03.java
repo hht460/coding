@@ -2,6 +2,9 @@ package org.hthu.jzoffer;
 
 import java.util.ArrayList;
 
+/**
+ * 反转链表
+ */
 public class JZ03 {
 
     // 链表反转（原地反转）
@@ -15,7 +18,9 @@ public class JZ03 {
             list.add(listNode.val);
             return list;
         }
+        // 创建哨兵节点
         ListNode resultList = new ListNode();
+        // 将当前链表挂在哨兵节点后面
         resultList.next = listNode;
         ListNode p = listNode;
         ListNode pNext = p.next;
