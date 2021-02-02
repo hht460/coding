@@ -65,16 +65,4 @@ public class BinarySearchTree {
         }
     }
 
-    /**
-     * 静态内部类,构造节点数据结构
-     */
-    public static class Node {
-        private int data;
-        private Node left;
-        private Node right;
-
-        public Node(int data) {
-            this.data = data;
-        }
-    }
 }
