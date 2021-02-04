@@ -40,7 +40,7 @@ public class BinarySearchTree {
             node = new Node(data);
             return;
         }
-        //
+        // 循环遍历
         while (node !=null){
             // 比当前节点数据小,遍历左子树
             if (node.data > data){
