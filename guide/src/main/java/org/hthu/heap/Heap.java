@@ -22,6 +22,11 @@ public class Heap {
         count = 0;
     }
 
+    /**
+     * 堆排序
+     * @param a
+     * @param n
+     */
     public void heapSort(int[] a, int n) {
         // 对一个普通数据初始化为一个堆
         buildHeap(a, n);
