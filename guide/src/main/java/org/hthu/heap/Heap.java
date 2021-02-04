@@ -22,6 +22,31 @@ public class Heap {
         count = 0;
     }
 
+    public void heapSort(int[] a, int n) {
+        // 对一个普通数据初始化为一个堆
+        buildHeap(a, n);
+        int k = n;
+        while (k > 0) {
+            // 交换第一个和最后一个元素,将堆顶元素和末尾元素对调
+            swap(a, 1, k);
+            // 数组长度减1
+            --k;
+            // 对剩下k-1个元素进行堆化,从第1个元素开始,从上向下堆化
+            heapify(a, 1, k);
+        }
+    }
+
+    /**
+     * 初始化堆,从一个普通数据初始化为一个堆
+     * @param a 数组
+     * @param n 数组长度
+     */
+    public void buildHeap(int[] a, int n) {
+        for (int i = n / 2; i > 0; i--) {
+            heapify(a, i, n);
+        }
+    }
+
     /**
      * 堆化,构建大顶堆
      * 堆化有两种方式: 从【下往上堆化,从上往下堆化】
@@ -50,22 +75,22 @@ public class Heap {
      * 移除大顶堆 堆顶元素(最大值)
      * 采用覆盖方式,即将堆末尾元素(数组末尾元素)移到堆顶位置, 再进行堆化重建堆
      */
-    public int removeMax(){
+    public void removeMax() {
         // 堆为空
-        if(count == 0){
-            return -1;
+        if (count == 0) {
+            return;
         }
         heap[1] = heap[count];
         // 更新堆中元素个数
         --count;
         // 堆化,重建堆
-
+        heapify(heap, 1, n);
     }
 
     /**
      * 堆化大顶堆, 采用【从上往下】堆化
      * @param temp 堆
-     * @param i 当前删除数据位置,即数组第一个位置(index = 1)
+     * @param i 当前节点,需要向下重建堆
      * @param n 堆大小
      */
     private void heapify(int[] temp, int i, int n) {
