@@ -1,5 +1,7 @@
 package org.hthu.heap;
 
+import java.util.Arrays;
+
 /**
  * 堆几种基本操作
  */
@@ -23,6 +25,23 @@ public class Heap {
     }
 
     /**
+     * 初始化堆,从一个普通数据初始化为一个堆
+     * @param a 数组
+     * @param n 数组长度
+     */
+    public void buildHeap(int[] a, int n) {
+        // 将外部数组初始化到heap结构内部
+        for (int i = 0; i < a.length; i++) {
+            heap[i+1] = a[i];
+        }
+        count = a.length;
+        // 对内部heap堆进行堆化
+        for (int i = n / 2; i >= 1; i--) {
+            heapify(heap, i, n);
+        }
+    }
+
+    /**
      * 堆排序
      * @param a
      * @param n
@@ -33,22 +52,11 @@ public class Heap {
         int k = n;
         while (k > 0) {
             // 交换第一个和最后一个元素,将堆顶元素和末尾元素对调
-            swap(a, 1, k);
+            swap(heap, 1, k);
             // 数组长度减1
             --k;
             // 对剩下k-1个元素进行堆化,从第1个元素开始,从上向下堆化
-            heapify(a, 1, k);
-        }
-    }
-
-    /**
-     * 初始化堆,从一个普通数据初始化为一个堆
-     * @param a 数组
-     * @param n 数组长度
-     */
-    public void buildHeap(int[] a, int n) {
-        for (int i = n / 2; i > 0; i--) {
-            heapify(a, i, n);
+            heapify(heap, 1, k);
         }
     }
 
@@ -106,12 +114,12 @@ public class Heap {
             // 左子树
             if (2 * i <= n && temp[i] < temp[2 * i]) {
                 // 更新最大点位
-                maxPos = 2*i;
+                maxPos = 2 * i;
             }
             // 右子树
-            if (2*i+1 <=n && temp[maxPos] < temp[2*i+1]){
+            if (2 * i + 1 <= n && temp[maxPos] < temp[2 * i + 1]) {
                 // 更新最大点位
-                maxPos = 2*i+1;
+                maxPos = 2 * i + 1;
             }
             // 当前节点满足堆特性,当前节点大于等于或者小于等于两个子节点, 终止循环
             if (maxPos == i){
@@ -134,5 +142,14 @@ public class Heap {
         int temp = array[a];
         array[a] = array[b];
         array[b] = temp;
+    }
+
+    @Override
+    public String toString() {
+        return "Heap{" +
+                "heap=" + Arrays.toString(heap) +
+                ", n=" + n +
+                ", count=" + count +
+                '}';
     }
 }
