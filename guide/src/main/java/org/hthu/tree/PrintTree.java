@@ -35,11 +35,11 @@ public class PrintTree {
             return;
         }
         // 递归左子树
-        preOrder(node.left);
+        inOrder(node.left);
         // 打印当前节点
         System.out.println(node.data);
         // 递归右子树
-        preOrder(node.right);
+        inOrder(node.right);
     }
 
     /**
@@ -52,9 +52,9 @@ public class PrintTree {
             return;
         }
         // 递归左子树
-        preOrder(node.left);
+        posOrder(node.left);
         // 递归右子树
-        preOrder(node.right);
+        posOrder(node.right);
         // 打印当前节点
         System.out.println(node.data);
     }

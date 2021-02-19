@@ -22,6 +22,7 @@ public class JZ03 {
         ListNode resultList = new ListNode();
         // 将当前链表挂在哨兵节点后面
         resultList.next = listNode;
+        // 保留当前节点指针
         ListNode p = listNode;
         ListNode pNext = p.next;
 

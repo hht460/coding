@@ -57,14 +57,12 @@ public class LinkedTest {
                     cur.next = head1;
                     cur = cur.next;
                     head1 = head1.next;
-
                 }
             } else {
                 while (head2 != null && head1.c > head2.c) {
                     cur.next = head2;
                     cur = cur.next;
                     head2 = head2.next;
-
                 }
             }
         }
@@ -85,7 +83,9 @@ public class LinkedTest {
         if (n < 1 || head == null) {
             return head;
         }
+        // 哨兵节点
         Node guard = new Node('/');
+        // 添加哨兵节点
         guard.next = head;
 
         Node slow = guard;
