@@ -100,6 +100,7 @@ public class LinkedTest {
             slow = slow.next;
             fast = fast.next;
         }
+        // 删除操作
         slow.next = slow.next.next;
         return guard.next;
     }
