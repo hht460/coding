@@ -31,7 +31,7 @@ public class LinkedTest {
         return cur;
     }
 
-
+    // 判断是否为循环链表
     public static boolean existsCircle(Node head) {
         Node slow = head;
         Node fast = head;
