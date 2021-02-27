@@ -29,7 +29,7 @@ public class QuickSortLearn {
             return;
         }
 
-        // 获取分区点
+        // 由分区值获取分区点
         int p = getPartition(temp, startIndex,endIndex);
         recursionSort(temp,startIndex,p-1);
         recursionSort(temp,p+1,endIndex);
