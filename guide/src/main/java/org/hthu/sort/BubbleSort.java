@@ -12,7 +12,7 @@ public class BubbleSort {
         System.out.println(Arrays.toString(a));
     }
 
-    // 改1
+    // 改1 是否继续比较标志
     public static void sort(int[] a) {
         for (int i = 0; i < a.length; i++) {
             boolean flag = false;
