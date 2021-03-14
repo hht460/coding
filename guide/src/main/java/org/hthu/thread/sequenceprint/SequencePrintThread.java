@@ -1,7 +1,7 @@
 package org.hthu.thread.sequenceprint;
 
 /**
- * 顺序执行线程
+ * 顺序执行线程，顺序打印
  */
 public class SequencePrintThread {
 
