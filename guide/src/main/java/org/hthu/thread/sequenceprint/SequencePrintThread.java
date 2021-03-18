@@ -9,7 +9,6 @@ public class SequencePrintThread {
         OneThread oneThread = new OneThread("one");
         TwoThread twoThread = new TwoThread("two");
         ThreeThread threeThread = new ThreeThread("three");
-
         // 顺序打印
         oneThread.start();
         oneThread.join(); // 阻塞主线程,等待oneThread线程执行结束
