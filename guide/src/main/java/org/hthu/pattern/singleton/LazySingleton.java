@@ -1,4 +1,4 @@
-package org.hthu.pattern;
+package org.hthu.pattern.singleton;
 
 /**
  * 懒汉式

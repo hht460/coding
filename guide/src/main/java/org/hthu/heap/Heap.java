@@ -30,12 +30,13 @@ public class Heap {
      * @param n 数组长度
      */
     public void buildHeap(int[] a, int n) {
-        // 将外部数组初始化到heap结构内部
+        // 将外部数组初始化到heap结构内部（对一组数据进行转化，组成堆的存储结构）
+        // 将数组a[]中数据读取出来，放入数组heap[]中
         for (int i = 0; i < a.length; i++) {
-            heap[i+1] = a[i];
+            heap[i+1] = a[i]; // 从下标 1 的位置开始存储，此时不具有堆结构
         }
         count = a.length;
-        // 对内部heap堆进行堆化
+        // 对内部heap数组进行堆化
         for (int i = n / 2; i >= 1; i--) {
             heapify(heap, i, n);
         }
@@ -62,7 +63,7 @@ public class Heap {
 
     /**
      * 堆化,构建大顶堆
-     * 堆化有两种方式: 从【下往上堆化,从上往下堆化】
+     * 堆化有两种方式: 【从下往上堆化,从上往下堆化】
      * 当前插入操作采用【从下往上】堆化
      */
     // 插入一个元素, 默认当前堆没有元素
@@ -103,7 +104,7 @@ public class Heap {
     /**
      * 堆化大顶堆, 采用【从上往下】堆化
      * @param temp 堆
-     * @param i 当前节点,需要向下重建堆
+     * @param i 当前节点,需要向下重建堆,就是将当前节点下移到合适位置
      * @param n 堆大小
      */
     private void heapify(int[] temp, int i, int n) {
