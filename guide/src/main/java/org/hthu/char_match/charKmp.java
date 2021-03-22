@@ -1,4 +1,4 @@
-package org.hthu.charmatch;
+package org.hthu.char_match;
 
 /**
  * KMP算法

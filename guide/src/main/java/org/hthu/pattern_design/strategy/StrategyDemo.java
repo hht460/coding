@@ -1,4 +1,4 @@
-package org.hthu.pattern.strategy;
+package org.hthu.pattern_design.strategy;
 
 /**
  * 测试策略模式

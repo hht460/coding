@@ -1,4 +1,4 @@
-package org.hthu.pattern.strategy;
+package org.hthu.pattern_design.strategy;
 
 /**
  * 策略算法1

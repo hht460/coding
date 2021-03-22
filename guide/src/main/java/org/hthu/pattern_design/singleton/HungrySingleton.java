@@ -1,4 +1,4 @@
-package org.hthu.pattern.singleton;
+package org.hthu.pattern_design.singleton;
 
 /**
  * 饿汉式
