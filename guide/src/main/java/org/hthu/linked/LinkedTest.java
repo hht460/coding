@@ -31,7 +31,7 @@ public class LinkedTest {
         return cur;
     }
 
-    // 判断是否为循环链表
+    // 判断是否为循环链表，快慢指针
     public static boolean existsCircle(Node head) {
         Node slow = head;
         Node fast = head;
@@ -48,6 +48,7 @@ public class LinkedTest {
     // 链表合并
     public static Node merge(Node head1, Node head2) {
 
+        // 哨兵
         Node guard = new Node('/');
         Node cur = guard;
 
@@ -105,11 +106,13 @@ public class LinkedTest {
         return guard.next;
     }
 
-    // 获取中间节点
+    // 获取中间节点,快慢指针
     public static Node getMiddle(Node head, int n) {
         Node slow = head;
         Node fast = head;
 
+        // 链表个数为奇数：fast指针移到倒数第一个节点结束（fast.next != null）
+        // 链表个数为偶数：fast指针移到倒数第二个节点结束（fast.next.next != null）
         while (fast.next != null && fast.next.next != null) {
             slow = slow.next;
             fast = fast.next.next;
