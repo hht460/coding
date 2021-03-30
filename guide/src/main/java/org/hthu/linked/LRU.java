@@ -10,9 +10,8 @@ package org.hthu.linked;
  *     2.2.2、链表已经满、删除链表尾节点，将新的数据插入链表头部
  */
 public class LRU {
-    /**
-     * 链表节点
-     */
+
+    // 链表节点
     public static class Node {
         public int v;
         public Node next;

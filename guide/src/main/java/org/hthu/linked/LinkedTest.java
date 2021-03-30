@@ -2,6 +2,7 @@ package org.hthu.linked;
 
 public class LinkedTest {
 
+    // 链表节点
     public static class Node {
         public char c;
         public Node next;
