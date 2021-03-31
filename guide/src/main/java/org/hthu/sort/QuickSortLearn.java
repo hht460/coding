@@ -30,13 +30,14 @@ public class QuickSortLearn {
         }
 
         // 由分区值获取分区点
-        int p = getPartition(temp, startIndex,endIndex);
+//        int p = getPartition(temp, startIndex,endIndex);
+        int p = getPartitionMethod2(temp, startIndex,endIndex);
         recursionSort(temp,startIndex,p-1);
         recursionSort(temp,p+1,endIndex);
     }
 
     /*
-     * 获取分区点
+     * 获取分区点; 方法一
      * 1、默认取第一个元素作为起始分区点
      * 2、取余下元素与分区点元素比较
      * 2.1、大于分区点放置在右边,小区分区点放置在左边
@@ -95,6 +96,30 @@ public class QuickSortLearn {
         return endIndex;
     }
 
+    /**
+     * 获取分区点；方法二
+     * @param temp
+     * @param lo
+     * @param hi
+     * @return
+     */
+    public int getPartitionMethod2(int[] temp, int lo, int hi){
+        int partition = temp[lo]; // 取起始位置为起始分区点
+        int i = lo;
+        int j = hi;
+        while ( i < j){
+            while( i < j && temp[j] >= partition){
+                j--; // 向左移动
+            }
+            temp[i] = temp[j];
+            while(i < j && temp[i] <= partition){
+                i++;
+            }
+            temp[j] = temp[i];
+        }
+        temp[i] = partition;
+        return i;
+    }
 }
 
 
