@@ -1,5 +1,7 @@
 package org.hthu.jzoffer;
 
+import org.hthu.sort.QuickSortLearn;
+
 import java.util.PriorityQueue;
 import java.util.Scanner;
 
@@ -21,6 +23,36 @@ public class JZ139 {
         }
         int k = scanner.nextInt(); // 第K大数
         scanner.close();
+
+        // 实现方式一：优先队列（小顶堆）
+//        KlargestNumberByQueue(arr, k);
+
+        // 实现方式二：快排
+        KlargestNumberByQuickSort(arr, k);
+    }
+
+    private static void KlargestNumberByQuickSort(int[] arr, int k) {
+        int destIndex = arr.length - k;  // 当数组从小大排好序后，第k大数字，位于 arr.length - k（目标位置）
+        int start = 0;
+        int end = arr.length - 1;
+        QuickSortLearn quickSortLearn = new QuickSortLearn();
+        // 获取第一个分区点
+        int partition = quickSortLearn.getPartitionMethod2(arr,start,end);
+        // 当前分区点不等于 目标位置
+        while ( partition != destIndex){
+            if (partition < destIndex){
+                int i = partition + 1;
+                partition = quickSortLearn.getPartitionMethod2(arr, i, end);
+            }else {
+                int j = partition - 1;
+                partition = quickSortLearn.getPartitionMethod2(arr, start, j);
+            }
+        }
+        // 当前分区点等于 目标位置
+        System.out.println(arr[partition]);
+    }
+
+    private static void KlargestNumberByQueue(int[] arr, int k) {
         PriorityQueue<Integer> priorityQueue = new PriorityQueue<>(k); //初始容量K的优先队列(默认按照自然排序)
         for (int i = 0; i < arr.length; i++) { // 遍历每个元素
             // 优先队列中元素不足K个，直接插入
@@ -34,4 +66,6 @@ public class JZ139 {
         }
         System.out.println(priorityQueue.peek());
     }
+
+
 }
