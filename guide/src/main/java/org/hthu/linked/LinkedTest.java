@@ -1,5 +1,8 @@
 package org.hthu.linked;
 
+import java.util.Comparator;
+import java.util.PriorityQueue;
+
 public class LinkedTest {
 
     // 链表节点
@@ -46,26 +49,38 @@ public class LinkedTest {
         return false;
     }
 
-    // 链表合并
+    // 两个有序链表合并
     public static Node merge(Node head1, Node head2) {
 
         // 哨兵
         Node guard = new Node('/');
         Node cur = guard;
 
+//        while (head1 != null && head2 != null) {
+//            if (head1.c <= head2.c) {
+//                while (head1 != null && head1.c <= head2.c) {
+//                    cur.next = head1;
+//                    cur = cur.next;
+//                    head1 = head1.next;
+//                }
+//            } else {
+//                while (head2 != null && head1.c > head2.c) {
+//                    cur.next = head2;
+//                    cur = cur.next;
+//                    head2 = head2.next;
+//                }
+//            }
+//        }
+
         while (head1 != null && head2 != null) {
             if (head1.c <= head2.c) {
-                while (head1 != null && head1.c <= head2.c) {
-                    cur.next = head1;
-                    cur = cur.next;
-                    head1 = head1.next;
-                }
+                cur.next = head1;
+                cur = cur.next;
+                head1 = head1.next;
             } else {
-                while (head2 != null && head1.c > head2.c) {
-                    cur.next = head2;
-                    cur = cur.next;
-                    head2 = head2.next;
-                }
+                cur.next = head2;
+                cur = cur.next;
+                head2 = head2.next;
             }
         }
 
@@ -78,6 +93,44 @@ public class LinkedTest {
 
         return guard.next;
 
+    }
+
+    // k个有序链表合并（优先队列）
+    public static Node mergeKList(Node[] lists){
+        if (lists == null || lists.length == 0){
+            return null;
+        }
+
+        // 定义一个哨兵
+        Node guard = new Node('0');
+        Node cur = guard;
+
+        // 创建优先队列
+        PriorityQueue<Node> queue = new PriorityQueue<>(lists.length, new Comparator<Node>() {
+            @Override
+            public int compare(Node o1, Node o2) {
+                return o1.c - o2.c;
+            }
+        });
+
+        // 遍历所有链表，将每个链表第一个节点放入队列
+        for ( Node node : lists){
+            if (node!=null){
+                queue.offer(node);
+            }
+        }
+
+        // 循环从队列中取节点
+        while (!queue.isEmpty()){
+            cur.next = queue.poll(); // 弹出第一个最小节点
+            cur = cur.next;
+            if (cur.next != null){
+                // 当前链表是否存在下一个节点
+                queue.add(cur.next);
+            }
+        }
+
+        return guard.next;
     }
 
     // 删除倒数第N个节点
