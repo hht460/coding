@@ -95,16 +95,37 @@ public class LinkedTest {
 
     }
 
+    /**
+     *          ^            ^           ^
+     *          |            |           |
+     *        *****        *****       *****
+     *        *   *        *   *       *   *
+     *        *****        *****       *****
+     *          ^            ^           ^
+     *          |            |           |
+     *        *****        *****       *****
+     *        *   *        *   *       *   *
+     *        *****        *****       *****
+     *          ^            ^           ^
+     *          |            |           |
+     *        *****        *****       *****
+     *        *   *        *   *       *   *
+     *        *****        *****       *****
+     *     *****|************|***********|*******
+     *     *  *****        *****       *****    *
+     *     *  *   *        *   *       *   *    *
+     *     *  *****        *****       *****    *
+     *     ************************************** （优先队列）
+     *
+     */
     // k个有序链表合并（优先队列）
     public static Node mergeKList(Node[] lists){
         if (lists == null || lists.length == 0){
             return null;
         }
-
         // 定义一个哨兵
         Node guard = new Node('0');
         Node cur = guard;
-
         // 创建优先队列
         PriorityQueue<Node> queue = new PriorityQueue<>(lists.length, new Comparator<Node>() {
             @Override
@@ -112,24 +133,22 @@ public class LinkedTest {
                 return o1.c - o2.c;
             }
         });
-
         // 遍历所有链表，将每个链表第一个节点放入队列
         for ( Node node : lists){
             if (node!=null){
                 queue.offer(node);
             }
         }
-
         // 循环从队列中取节点
         while (!queue.isEmpty()){
             cur.next = queue.poll(); // 弹出第一个最小节点
             cur = cur.next;
             if (cur.next != null){
                 // 当前链表是否存在下一个节点
+                // 链表放入队列，链表自身指针依然存在
                 queue.add(cur.next);
             }
         }
-
         return guard.next;
     }
 
