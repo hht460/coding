@@ -15,7 +15,7 @@ public class QuickSortLearn {
      */
     public void quickSort(int[] a) {
         int len = a.length;
-        recursionSort(a,0,len-1);
+        recursionSort(a, 0, len - 1);
     }
 
 
@@ -25,15 +25,15 @@ public class QuickSortLearn {
      * endIndex：尾指针
      */
     public void recursionSort(int[] temp, int startIndex, int endIndex) {
-        if(startIndex >= endIndex) {
+        if (startIndex >= endIndex) {
             return;
         }
 
         // 由分区值获取分区点
 //        int p = getPartition(temp, startIndex,endIndex);
-        int p = getPartitionMethod2(temp, startIndex,endIndex);
-        recursionSort(temp,startIndex,p-1);
-        recursionSort(temp,p+1,endIndex);
+        int p = getPartitionMethod2(temp, startIndex, endIndex);
+        recursionSort(temp, startIndex, p - 1);
+        recursionSort(temp, p + 1, endIndex);
     }
 
     /*
@@ -46,15 +46,15 @@ public class QuickSortLearn {
         int pv = temp[lo];
         int startIndex = lo;
         int endIndex = hi + 1;
-        while(true) {
+        while (true) {
             /*
              * 左边元素与分区点比较
              * 比分区点元素小，保持位置不动，移动指针
              * 比分区点元素大，保存当前指针位置，跳出循环，停止向前移动
              * 当指针越界，过了尾指针endIndex,此刻也需要停止向前移动，跳出循环（表示当前数组元素都比分区点值小）
              */
-            while(temp[++startIndex] < pv) {
-                if(startIndex>=hi) {
+            while (temp[++startIndex] < pv) {
+                if (startIndex >= hi) {
                     break;
                 }
             }
@@ -65,8 +65,8 @@ public class QuickSortLearn {
              * 比分区点元素小，保存当前指针位置，跳出循环，停止向左移动
              * 当指针越界，过了头指针startIndex,此刻也需要停止向左移动，跳出循环（表示当前数组元素都比分区点值大）
              */
-            while(temp[--endIndex] > pv) {
-                if(endIndex<=lo) {
+            while (temp[--endIndex] > pv) {
+                if (endIndex <= lo) {
                     break;
                 }
             }
@@ -74,7 +74,7 @@ public class QuickSortLearn {
             /*
              * 跳出循环
              */
-            if(startIndex>=endIndex) {
+            if (startIndex >= endIndex) {
                 break;
             }
 
@@ -98,25 +98,27 @@ public class QuickSortLearn {
 
     /**
      * 获取分区点；方法二
+     *
      * @param temp
      * @param lo
      * @param hi
      * @return
      */
-    public int getPartitionMethod2(int[] temp, int lo, int hi){
+    public int getPartitionMethod2(int[] temp, int lo, int hi) {
         int partition = temp[lo]; // 取起始位置为起始分区点
         int i = lo;
         int j = hi;
-        while ( i < j){
-            while( i < j && temp[j] >= partition){
+        while (i < j) {
+            while (i < j && temp[j] >= partition) {
                 j--; // 向左移动
             }
             temp[i] = temp[j];
-            while(i < j && temp[i] <= partition){
-                i++;
-            }
+            while (i < j && temp[i] <= partition) {
+                i++; // 向右移动
+           }
             temp[j] = temp[i];
         }
+        // 将分区点移到指定位置
         temp[i] = partition;
         return i;
     }
