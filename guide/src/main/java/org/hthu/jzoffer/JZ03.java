@@ -3,7 +3,7 @@ package org.hthu.jzoffer;
 import java.util.ArrayList;
 
 /**
- * 反转链表
+ * 	从尾到头打印链表(反转链表)
  */
 public class JZ03 {
 
