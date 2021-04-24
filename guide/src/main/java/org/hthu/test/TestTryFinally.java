@@ -1,9 +1,5 @@
 package org.hthu.test;
 
-import javax.swing.tree.TreeNode;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Queue;
 import java.util.Scanner;
 
 public class TestTryFinally {
@@ -15,7 +11,7 @@ public class TestTryFinally {
         String ss = scanner.nextLine();
         System.out.println(ss);
 
-//        System.out.println(f(2));
+        System.out.println(f(2));
     }
     public static int f(int v){
         try {
