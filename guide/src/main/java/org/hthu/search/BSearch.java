@@ -11,6 +11,7 @@ public class BSearch {
 
     /**
      * 普通二分查找,有序数组、不含有重复元素
+     *
      * @param a
      * @param n
      * @param value
@@ -34,6 +35,7 @@ public class BSearch {
 
     /**
      * 递归实现普通二分查找
+     *
      * @param a
      * @param n
      * @param value
@@ -62,6 +64,7 @@ public class BSearch {
     /**
      * 二分查找变体:含有重复元素
      * 查找第一个值等于给定值的元素
+     *
      * @param a
      * @param n
      * @param value
@@ -89,6 +92,7 @@ public class BSearch {
     /**
      * 二分查找变体:含有重复元素
      * 查找最后一个值等于给定值的元素
+     *
      * @param a
      * @param n
      * @param value
@@ -100,7 +104,7 @@ public class BSearch {
         while (low <= hight) {
             int mid = low + ((hight - low) >> 1);
             if (a[mid] == value) {
-                if ((mid == n-1) || a[mid + 1] != value) {
+                if ((mid == n - 1) || a[mid + 1] != value) {
                     return mid;
                 }
                 low = mid + 1;
@@ -116,6 +120,7 @@ public class BSearch {
     /**
      * 二分查找变体:含有重复元素
      * 查找第一个大于等于给定值的元素
+     *
      * @param a
      * @param n
      * @param value
@@ -140,6 +145,7 @@ public class BSearch {
 
     /**
      * 查找最后一个小于等于给定值的元素
+     *
      * @param a
      * @param n
      * @param value
@@ -151,7 +157,7 @@ public class BSearch {
         while (low <= hight) {
             int mid = low + ((hight - low) >> 1);
             if (a[mid] <= value) {
-                if ((mid == n-1) || a[mid +1] > value) {
+                if ((mid == n - 1) || a[mid + 1] > value) {
                     return mid;
                 }
                 low = mid + 1;

@@ -57,6 +57,7 @@ public class PrintTree {
         posOrder(node.right);
         // 打印当前节点
         System.out.println(node.data);
+
     }
 
     /**
