@@ -1,8 +1,8 @@
-package org.hthu.test;
+package org.hthu.exam.honor;
 
 import java.util.Scanner;
 
-public class Test {
+public class Honor1 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String[] strings = sc.nextLine().split(" ");
