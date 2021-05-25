@@ -1,5 +1,6 @@
 package org.hthu.kafka.consumer;
 
+import java.time.Duration;
 import java.util.Arrays;
 import java.util.Properties;
 
@@ -39,7 +40,7 @@ public class ConsumerTest {
         try {
             while (true) {
                 //循环调用kafkaConsumer.poll方法获取封装在ConsumerRecord的topic消息。
-                ConsumerRecords<String, String> records = consumer.poll(1000);
+                ConsumerRecords<String, String> records = consumer.poll(Duration.ofMillis(1000));
                 //获取到封装在ConsumerRecords消息以后，处理获取到ConsumerRecord对象。
                 for (ConsumerRecord<String, String> record : records) {
                     //简单的打印输出
