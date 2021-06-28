@@ -5,7 +5,7 @@ package org.hthu.test;
  */
 public class Sinleton {
 
-    // // volatile修饰 防止指令重排序
+    // volatile修饰 防止指令重排序
     private static volatile MasStringTool masStringTool;
 
     private Sinleton(){}

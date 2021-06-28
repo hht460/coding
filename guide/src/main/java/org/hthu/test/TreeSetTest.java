@@ -81,12 +81,13 @@ public class TreeSetTest {
         hs.add(new Student("xiao001", 50));
 
         System.out.println("===================================");
-        Iterator<Student> iterator = hs.iterator();
-        while(iterator.hasNext()){
-            Student p = iterator.next();
-            System.out.println(p.getName()+"   "+p.getAge());
+        for (Student p : hs) {
+            System.out.println(p.getName() + "   " + p.getAge());
         }
-
+//        while(iterator.hasNext()){
+//            Student p = iterator.next();
+//            System.out.println(p.getName()+"   "+p.getAge());
+//        }
 //        ConcurrentHashMap
     }
 }
