@@ -49,6 +49,7 @@ public class BubbleSort {
             sortBorder = lastIndex;
             if (flag) {
                 break;
+
             }
         }
     }

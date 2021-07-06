@@ -41,7 +41,7 @@ public class BinarySearchTree {
             return;
         }
         // 循环遍历
-        while (node !=null){
+        while (null != node){
             // 比当前节点数据小,遍历左子树
             if (node.data > data){
                 // 左子树为空
