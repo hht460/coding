@@ -5,8 +5,13 @@ public class JZ01 {
 
     }
 
-    // 二维数组中的查找
-    public static boolean Find(int target, int[][] array) {
+    /**
+     * 二维数组中的查找
+     * @param target
+     * @param array
+     * @return
+     */
+    public static boolean find(int target, int[][] array) {
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
                 if (array[i][j] == target) {

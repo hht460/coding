@@ -28,10 +28,10 @@ public class JZ139 {
 //        KlargestNumberByQueue(arr, k);
 
         // 实现方式二：快排
-        KlargestNumberByQuickSort(arr, k);
+        klargestNumberByQuickSort(arr, k);
     }
 
-    private static void KlargestNumberByQuickSort(int[] arr, int k) {
+    private static void klargestNumberByQuickSort(int[] arr, int k) {
         int destIndex = arr.length - k;  // 当数组从小大排好序后，第k大数字，位于 arr.length - k（目标位置）
         int start = 0;
         int end = arr.length - 1;

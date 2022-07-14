@@ -15,7 +15,7 @@ public class JZ14 {
         }
     }
 
-    public ListNode FindKthToTail(ListNode pHead, int k) {
+    public ListNode findKthToTail(ListNode pHead, int k) {
         if (null == pHead) {
             return null;
         }

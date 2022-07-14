@@ -14,7 +14,7 @@ package org.hthu.jzoffer;
  * 那么一个整数的二进制有多少个1，就可以进行多少次这样的操作
  */
 public class JZ11 {
-    public int NumberOf1(int n) {
+    public int numberOf1(int n) {
         if (n == 0) {
             return 0;
         }

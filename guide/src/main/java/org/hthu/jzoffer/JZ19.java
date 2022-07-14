@@ -2,6 +2,14 @@ package org.hthu.jzoffer;
 
 import java.util.ArrayList;
 
+/**
+ * 顺时针遍历二维数组
+ * ->->->->
+ * |      |
+ * ^     V
+ * |     |
+ * <-<-<-V
+ */
 public class JZ19 {
     public ArrayList<Integer> printMatrix(int[][] matrix) {
         ArrayList<Integer> result = new ArrayList<Integer>();

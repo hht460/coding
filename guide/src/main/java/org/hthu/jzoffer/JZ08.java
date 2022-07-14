@@ -12,7 +12,7 @@ package org.hthu.jzoffer;
  */
 public class JZ08 {
 
-    public int JumpFloor(int target) {
+    public int jumpFloor(int target) {
         if(target <= 0){
             return 0;
         }
@@ -22,6 +22,6 @@ public class JZ08 {
         if(target == 2){
             return 2;
         }
-        return JumpFloor(target-1) + JumpFloor(target-2);
+        return jumpFloor(target-1) + jumpFloor(target-2);
     }
 }
