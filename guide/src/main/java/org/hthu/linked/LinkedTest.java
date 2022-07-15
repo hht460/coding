@@ -3,6 +3,9 @@ package org.hthu.linked;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
+/**
+ * 链表相关
+ */
 public class LinkedTest {
 
     // 链表节点
@@ -26,6 +29,7 @@ public class LinkedTest {
         Node next = head.next;
 
         while (next != null) {
+            // 断开下一个节点，调整链表方向
             cur.next = prev;
             prev = cur;
             cur = next;
@@ -35,7 +39,9 @@ public class LinkedTest {
         return cur;
     }
 
-    // 判断是否为循环链表，快慢指针
+    /**
+     * 判断是否为循环链表，快慢指针
+     */
     public static boolean existsCircle(Node head) {
         Node slow = head;
         Node fast = head;
@@ -96,6 +102,8 @@ public class LinkedTest {
     }
 
     /**
+     *  k个有序链表合并（优先队列）
+     *
      * ^            ^           ^
      * |            |           |
      * *****        *****       *****
@@ -117,7 +125,6 @@ public class LinkedTest {
      * *  *****        *****       *****    *
      * ************************************** （优先队列）
      */
-    // k个有序链表合并（优先队列）
     public static Node mergeKList(Node[] lists) {
         if (lists == null || lists.length == 0) {
             return null;
@@ -141,7 +148,8 @@ public class LinkedTest {
         }
         // 循环从队列中取节点
         while (!queue.isEmpty()) {
-            cur.next = queue.poll(); // 弹出第一个最小节点
+            // 弹出第一个最小节点
+            cur.next = queue.poll();
             cur = cur.next;
             if (cur.next != null) {
                 // 当前链表是否存在下一个节点
@@ -179,7 +187,9 @@ public class LinkedTest {
         return guard.next;
     }
 
-    // 获取中间节点,快慢指针
+    /**
+     * 获取中间节点,快慢指针
+     */
     public static Node getMiddle(Node head, int n) {
         Node slow = head;
         Node fast = head;

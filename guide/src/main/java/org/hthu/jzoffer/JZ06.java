@@ -16,7 +16,8 @@ public class JZ06 {
 
         // 选取最右端数据为假定目标值
         while(low < hight){
-            int mid = low + (hight-low)/2; // (hight + low)/2
+            // (hight + low)/2
+            int mid = low + (hight-low)/2;
             if(array[mid] < array[hight]){
                 hight = mid;
             }else if(array[mid] > array[hight]){

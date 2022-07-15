@@ -6,10 +6,10 @@ public class JZ01 {
     }
 
     /**
-     * 二维数组中的查找
-     * @param target
-     * @param array
-     * @return
+     * 二维数组中的查找,考察二维数组遍历
+     * @param target 目标值
+     * @param array 二维数组
+     * @return 结果
      */
     public static boolean find(int target, int[][] array) {
         for (int i = 0; i < array.length; i++) {

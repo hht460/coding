@@ -3,16 +3,16 @@ package org.hthu.jzoffer;
 import java.util.Stack;
 
 /**
- * 两个栈实现一个队列
+ *  两个栈实现一个队列
+ *  当插入时，直接插入 stack1
+ *  当弹出时，当 stack2 不为空，弹出 stack2 栈顶元素，
+ *  如果 stack2 为空，将 stack1 中的全部数逐个出栈入栈 stack2，再弹出 stack2 栈顶元素
  */
 public class JZ05 {
 
     Stack<Integer> stack1 = new Stack<Integer>();
     Stack<Integer> stack2 = new Stack<Integer>();
 
-    // 当插入时，直接插入 stack1
-    // 当弹出时，当 stack2 不为空，弹出 stack2 栈顶元素，
-    //          如果 stack2 为空，将 stack1 中的全部数逐个出栈入栈 stack2，再弹出 stack2 栈顶元素
     public void push(int node) {
         stack1.push(node);
     }
