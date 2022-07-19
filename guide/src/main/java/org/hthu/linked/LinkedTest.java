@@ -24,6 +24,7 @@ public class LinkedTest {
             return head;
         }
 
+        // prev 反向指针，起始指向null,构造一个虚拟节点
         Node prev = null;
         Node cur = head;
         Node next = head.next;
