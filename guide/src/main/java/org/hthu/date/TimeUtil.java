@@ -24,13 +24,21 @@ public class TimeUtil {
         return localDateTime.toInstant(ZoneOffset.of("+8")).toEpochMilli();
     }
 
+    /**
+     * 有问题的方式：获取当天零点时间戳
+     * @return
+     */
+    public static long getTodayZeroTimeOld() {
+        return System.currentTimeMillis() / (1000 * 3600 * 24) * (1000 * 3600 * 24) - TimeZone.getDefault().getRawOffset();
+    }
+
     public static long getCurrTime(){
         return System.currentTimeMillis() / (1000 * 3600 * 24);
     }
 
     public static boolean isFistHalfOfToday(long time, int timeDivision) {
         long todayZeroTime = getTodayZeroTime();
-        long visionTime = timeDivision * 60 * 60 * 1000;
+        long visionTime = timeDivision * 3600 * 1000;
         return time >= todayZeroTime && time < todayZeroTime + visionTime;
     }
 
