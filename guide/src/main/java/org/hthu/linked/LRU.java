@@ -23,7 +23,7 @@ public class LRU {
 
     /**
      * 访问某个数据
-     * @param node
+     * @param node lru 链表
      * @return
      */
     public Node query(Node node, int n){
