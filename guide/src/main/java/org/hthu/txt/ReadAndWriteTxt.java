@@ -24,32 +24,56 @@ public class ReadAndWriteTxt {
 
     public static void main(String[] args) throws IOException {
 
-        LinkedHashMap<String, String> stringStringMap2 = readTxtFile("D:\\doc\\yin2.txt");
+//        LinkedHashMap<String, String> stringStringMap2 = readTxtFile("D:\\doc\\yin2.txt");
+//
+//
+//        LinkedHashMap<String, String> stringStringMap1 = readTxtFile("D:\\doc\\yin1.txt");
 
+        LinkedHashMap<String, Integer> stringIntegerLinkedHashMap = readTxtFileMap("D:\\eee.txt");
+        for (Map.Entry<String, Integer> text : stringIntegerLinkedHashMap.entrySet()){
 
-        LinkedHashMap<String, String> stringStringMap1 = readTxtFile("D:\\doc\\yin1.txt");
-
-
-        for (Map.Entry<String, String> text : stringStringMap2.entrySet()){
-            if (stringStringMap1.containsKey(text.getKey())){
-                String s = stringStringMap1.get(text.getKey());
-
-                stringStringMap2.put(text.getKey(), s);
-
+            if (text.getValue()>1){
+                System.out.println(text.getKey());
             }
+
         }
 
-        writeTxtFile("D:\\doc\\yin3.txt", stringStringMap2);
+//        writeTxtFile("D:\\doc\\yin3.txt", stringStringMap2);
 
     }
 
+    private static LinkedHashMap<String, Integer> readTxtFileMap(String filePath) {
+
+        LinkedHashMap<String, Integer> textMap = new LinkedHashMap<>();
+
+        try (FileInputStream fileInputStream = new FileInputStream(filePath);
+             InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, "UTF-8");
+             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);) {
+
+            String line = null;
+            while ((line = bufferedReader.readLine()) != null) {
+                if (textMap.containsKey(line)){
+                    Integer num = textMap.get(line);
+                    num = num + 1;
+                    textMap.put(line, num);
+                }else {
+                    textMap.put(line, 1);
+                }
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return textMap;
+    }
 
     /**
      * 根据文件路径读取文件
      *
      * @param filePath
      *            文件路径
-     * @return Map<Integer, String>
+     * @return Map<String, String>
      */
     private static LinkedHashMap<String, String> readTxtFile(String filePath) {
 

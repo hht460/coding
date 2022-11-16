@@ -10,20 +10,21 @@ public class BinarySearchTree {
 
     /**
      * 二叉搜索树查找操作
+     *
      * @param data
      * @return
      */
-    public Node find(int data){
+    public Node find(int data) {
         Node tmp = node;
-        while(tmp !=null){
+        while (tmp != null) {
             // 大于当前节点值,遍历右子树
-            if (tmp.data < data){
+            if (tmp.data < data) {
                 tmp = tmp.right;
             }
             // 小于当前节点值,遍历左子树
-            else if(tmp.data > data){
+            else if (tmp.data > data) {
                 tmp = tmp.left;
-            }else {
+            } else {
                 return tmp;
             }
         }
@@ -32,37 +33,46 @@ public class BinarySearchTree {
 
     /**
      * 二叉搜索树插入操作
+     *
      * @param data
      */
-    public void insert(int data){
+    public Node insert(Node currNode, int data) {
         // 空二叉搜索树
-        if (node == null){
-            node = new Node(data);
-            return;
+        if (currNode == null) {
+            currNode = new Node(data);
+            return currNode;
         }
         // 循环遍历
-        while (null != node){
+        while (currNode != null) {
             // 比当前节点数据小,遍历左子树
-            if (node.data > data){
+            if (currNode.data > data) {
                 // 左子树为空
-                if (node.left == null){
-                    node.left = new Node(data);
-                    return;
+                if (currNode.left == null) {
+                    currNode.left = new Node(data);
+                    return currNode;
                 }
                 // 左子树不为空,继续递归遍历左子树
-                node = node.left;
+                currNode = currNode.left;
             }
             // 比当前节点数据大,遍历右子树
-            if (node.data < data){
+            if (currNode.data < data){
                 // 右子树为空
-                if (node.right == null){
-                    node.right = new Node(data);
-                    return;
+                if (currNode.right == null) {
+                    currNode.right = new Node(data);
+                    return currNode;
                 }
                 // 右子树不为空,继续递归遍历右子树
-                node = node.right;
+                currNode = currNode.right;
             }
         }
+        return currNode;
     }
 
+    public Node getNode() {
+        return node;
+    }
+
+    public void setNode(Node node) {
+        this.node = node;
+    }
 }
