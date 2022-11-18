@@ -4,7 +4,10 @@ import java.util.ArrayList;
 import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Queue;
+import java.util.Set;
+import java.util.TreeMap;
 import java.util.concurrent.BlockingDeque;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingDeque;
@@ -169,16 +172,57 @@ public class PrintTree {
     }
 
     /**
-     * 二叉树右视图
+     * 二叉树俯视图 利用坐标原理，定义根节点为原点0，往左遍历减1 往右遍历加1
      *
      * @param node 二叉树
      */
     public void lookDownView(Node node) {
 
+        class QueueObj {
+            Node node;
+            int hd; // 坐标
+
+            public QueueObj(Node node, int hd) {
+                this.node = node;
+                this.hd = hd;
+            }
+        }
+
         if (node == null) {
             return;
         }
-        leftSideView(node);
-        rightSideView(node);
+        // 存放节点
+        Queue<QueueObj> queue = new LinkedBlockingQueue<>();
+
+        // 存放二叉树两边节点数值，同时判断坐标不能回退
+        Map<Integer, Node> topViewMap = new TreeMap<>();
+
+        // 将根节点加入队列，同时定义根节点当前坐标为 0
+        queue.add(new QueueObj(node, 0));
+
+        while (!queue.isEmpty()) {
+
+            QueueObj remove = queue.remove();
+
+            // 不存在即添加，利用key，实现排序  ...-2 -1 0 1 2...
+            if (!topViewMap.containsKey(remove.hd)) {
+                topViewMap.put(remove.hd, remove.node);
+            }
+
+            // 左子树
+            if (remove.node.getLeft() != null) {
+                queue.add(new QueueObj(remove.node.getLeft(), remove.hd - 1));
+            }
+
+            // 右子树
+            if (remove.node.getRight() != null) {
+                queue.add(new QueueObj(remove.node.getRight(), remove.hd + 1));
+            }
+        }
+        for (Map.Entry<Integer, Node> entry : topViewMap.entrySet()) {
+            Node value = entry.getValue();
+            System.out.print(value.data + " ");
+        }
+
     }
 }
