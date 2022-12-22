@@ -1,8 +1,11 @@
 package org.hthu.test;
 
+import cn.hutool.core.util.NumberUtil;
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.time.DateUtils;
 
+import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -11,6 +14,8 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.UUID;
+import java.util.stream.Collectors;
 
 public class Main {
 
@@ -42,6 +47,7 @@ public class Main {
         datestr = df.format(date);
         return datestr;
     }
+
     public static void main(String[] args) {
 
 //        String s = dateToString(new Date(1660838400000L));
@@ -57,12 +63,22 @@ public class Main {
 //        System.out.println(decode.toString());
 
 
-        List<Long> memberIds = new ArrayList<>();
-        memberIds.add(1L);
-        memberIds.add(2L);
-        memberIds.add(3L);
-        System.out.println(memberIds);
-        memberIds.removeIf(memberId -> memberId.equals(2L));
-        System.out.println(memberIds);
+//        BigDecimal maxTruckWeight = new BigDecimal("15.5");
+//
+//        Double truckWeight = 2.2d;
+//
+//        BigDecimal remainTruckWeight = NumberUtil.sub(maxTruckWeight, truckWeight);
+//
+//        System.out.println(remainTruckWeight);
+        
+//        List<Long> memberIds = new ArrayList<>();
+//        memberIds.add(1L);
+//        memberIds.add(2L);
+//        memberIds.add(3L);
+//        System.out.println(memberIds);
+//        memberIds.removeIf(memberId -> memberId.equals(2L));
+//        System.out.println(memberIds);
+//
+//        System.out.println(UUID.randomUUID().toString().replace("-", ""));
     }
 }

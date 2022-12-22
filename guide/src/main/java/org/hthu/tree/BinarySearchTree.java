@@ -36,11 +36,11 @@ public class BinarySearchTree {
      *
      * @param data
      */
-    public Node insert(Node currNode, int data) {
+    public void insert(Node currNode, int data) {
         // 空二叉搜索树
         if (currNode == null) {
             currNode = new Node(data);
-            return currNode;
+            return;
         }
         // 循环遍历
         while (currNode != null) {
@@ -49,23 +49,22 @@ public class BinarySearchTree {
                 // 左子树为空
                 if (currNode.left == null) {
                     currNode.left = new Node(data);
-                    return currNode;
+                    return;
                 }
                 // 左子树不为空,继续递归遍历左子树
                 currNode = currNode.left;
             }
             // 比当前节点数据大,遍历右子树
-            if (currNode.data < data){
+            if (currNode.data < data) {
                 // 右子树为空
                 if (currNode.right == null) {
                     currNode.right = new Node(data);
-                    return currNode;
+                    return;
                 }
                 // 右子树不为空,继续递归遍历右子树
                 currNode = currNode.right;
             }
         }
-        return currNode;
     }
 
     public Node getNode() {

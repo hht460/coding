@@ -23,8 +23,9 @@ public class TreeMain {
         binarySearchTree.insert(node,31);
 
         PrintTree printTree = new PrintTree();
-//        printTree.inOrder(node);
 
         printTree.lookDownView(node);
+
+        printTree.inOrder(node);
     }
 }
