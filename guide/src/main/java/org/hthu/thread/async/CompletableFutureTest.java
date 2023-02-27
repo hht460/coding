@@ -20,13 +20,12 @@ public class CompletableFutureTest {
         List<CompletableFuture<String>> futureList = new ArrayList<>();
 
         initData.forEach(item -> {
+
                     CompletableFuture<String> stringCompletableFuture = CompletableFuture.supplyAsync(() -> {
-                        // TODO
-                        if ("b".equalsIgnoreCase(item)){
-                            System.out.println(1/0);
-                        }
+                        System.out.println(item);
                         return item + "sync";
                     });
+
                     futureList.add(stringCompletableFuture);
                 }
         );

@@ -4,12 +4,18 @@ import cn.hutool.core.util.NumberUtil;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.time.DateUtils;
+import org.hthu.jzoffer.JZ07;
 
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.ZoneOffset;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Base64;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
@@ -80,5 +86,35 @@ public class Main {
 //        System.out.println(memberIds);
 //
 //        System.out.println(UUID.randomUUID().toString().replace("-", ""));
+
+//        System.out.println(System.currentTimeMillis() % 100);
+
+//        long startTime = System.currentTimeMillis();
+//        JZ07 jz07 = new JZ07();
+//        long fibonacci = jz07.fibonacci(50);
+//        System.out.println(fibonacci);
+//        long time = System.currentTimeMillis() - startTime;
+//        System.out.println(time/1000);
+
+//        System.out.println(Long.valueOf(""));
+//
+//        Long ss = 965006065497596735222L;
+        System.out.println(getTodayZeroTime()+DAY);
+        System.out.println(addHour(getTodayZeroTime()+DAY, 4));
+
+    }
+
+    public final static long DAY = 24 * 60 * 60 * 1000;
+
+    public static long getTodayZeroTime() {
+        LocalDateTime localDateTime = LocalDateTime.of(LocalDate.now(), LocalTime.MIN);
+        return localDateTime.toInstant(ZoneOffset.of("+8")).toEpochMilli();
+    }
+
+    public static long addHour(long time, int num) {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(new Date(time));
+        cal.add(Calendar.HOUR_OF_DAY, num);
+        return cal.getTime().getTime();
     }
 }

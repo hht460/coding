@@ -5,7 +5,7 @@ package org.hthu.jzoffer;
  */
 public class JZ07 {
 
-    public int fibonacci(int n) {
+    public long fibonacci(int n) {
         if(n==0){
             return 0;
         }
