@@ -19,6 +19,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -55,53 +56,29 @@ public class Main {
     }
 
     public static void main(String[] args) {
+//        Integer queryOrderTime = -24 * 30;
+//        System.out.println(addHour(System.currentTimeMillis(), queryOrderTime));
 
-//        String s = dateToString(new Date(1660838400000L));
-//        System.out.println(s);
-
-//        String item = "10##0.5434";
-//        String SHARP_SEPARATOR = "#";
-//        String[] split = StringUtils.split(item, SHARP_SEPARATOR);
-//        System.out.println(Arrays.toString(split));
-
-//        byte[] decode = Base64.getDecoder().decode("ChVzbHBkX3YyX3JvdXRlc18zMGRheXMTChVzbHBkX3YyX3JvdXRlc18zMGRheXMTCg1jaXR5X2lkX3RvX2lkEg01MTE5MDBfNDQwMTAwFBQ=");
-
-//        System.out.println(decode.toString());
-
-
-//        BigDecimal maxTruckWeight = new BigDecimal("15.5");
+//        BigDecimal weight = calculateMax(0d);
 //
-//        Double truckWeight = 2.2d;
-//
-//        BigDecimal remainTruckWeight = NumberUtil.sub(maxTruckWeight, truckWeight);
-//
-//        System.out.println(remainTruckWeight);
-        
-//        List<Long> memberIds = new ArrayList<>();
-//        memberIds.add(1L);
-//        memberIds.add(2L);
-//        memberIds.add(3L);
-//        System.out.println(memberIds);
-//        memberIds.removeIf(memberId -> memberId.equals(2L));
-//        System.out.println(memberIds);
-//
-//        System.out.println(UUID.randomUUID().toString().replace("-", ""));
+//        Integer expectFreight = 100;
+//        int i = BigDecimal.valueOf(expectFreight).multiply(weight).intValue();
+//        System.out.println(i);
 
-//        System.out.println(System.currentTimeMillis() % 100);
+        Integer oldFreight = 131;
 
-//        long startTime = System.currentTimeMillis();
-//        JZ07 jz07 = new JZ07();
-//        long fibonacci = jz07.fibonacci(50);
-//        System.out.println(fibonacci);
-//        long time = System.currentTimeMillis() - startTime;
-//        System.out.println(time/1000);
+        Integer presentFreight = -10;
 
-//        System.out.println(Long.valueOf(""));
-//
-//        Long ss = 965006065497596735222L;
-        System.out.println(getTodayZeroTime()+DAY);
-        System.out.println(addHour(getTodayZeroTime()+DAY, 4));
+        Integer addPriceAmount = presentFreight + oldFreight;
 
+        BigDecimal weight = new BigDecimal("4.6");
+
+        System.out.println(BigDecimal.valueOf(oldFreight).multiply(weight).setScale(0, BigDecimal.ROUND_HALF_UP).intValue());
+
+        BigDecimal mul = NumberUtil.mul(weight, oldFreight);
+        BigDecimal capacityRate = NumberUtil.round(mul, 1);
+
+        System.out.println(capacityRate);
     }
 
     public final static long DAY = 24 * 60 * 60 * 1000;
@@ -116,5 +93,18 @@ public class Main {
         cal.setTime(new Date(time));
         cal.add(Calendar.HOUR_OF_DAY, num);
         return cal.getTime().getTime();
+    }
+
+    /**
+     * 获取最大值
+     *
+     * @param max 最大值
+     * @return 结果
+     */
+    private static BigDecimal calculateMax(Double max) {
+        if (Objects.isNull(max)) {
+            return BigDecimal.ZERO;
+        }
+        return BigDecimal.valueOf(max);
     }
 }
